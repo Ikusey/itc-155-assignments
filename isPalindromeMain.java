@@ -13,22 +13,36 @@ public class isPalindromeMain {
 		nums.add(8);
 		nums.add(3);
 		
-//		System.out.println(nums);
+		System.out.println(nums);
 		System.out.println(isPalindrome(nums));
-//		System.out.println(nums);
+		System.out.println(nums);
 	}
 
 	private static boolean isPalindrome(Queue<Integer> nums) {
 		if(nums.isEmpty())return true;
 		Stack<Integer> temp = new Stack<Integer>();
 		int numsize = nums.size();
-		for(int i = 0; i < numsize/2; i++) {
+		boolean decider = true;
+		for(int i = 0; i < numsize; i++) {
 			int number = nums.remove();
 			temp.push(number);
 			nums.add(number);
 		}
-		System.out.println(nums);
-		System.out.println(temp);
-		return true;
+		while(!temp.isEmpty()) {
+			int number = nums.remove();
+			if(!(number == temp.peek())) {
+				decider = false;
+			}
+			nums.add(temp.pop());
+		}
+		while(!nums.isEmpty()) {
+			int n = nums.remove();
+			temp.push(n);
+		}
+		while(!temp.empty()) {
+			int n = temp.pop();
+			nums.add(n);
+		}
+		return decider;
 	}
 }
