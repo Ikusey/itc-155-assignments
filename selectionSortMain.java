@@ -1,5 +1,11 @@
 package itc155_workspace;
-
+//
+//4. the complexity class is linear O(N) since there is just one for loop with 2 statements in the algorithm
+//with 2 statements outside the loop and iterates over the entire array
+//5.  the complexity class is linear O(N) since there is just 1 for loop with 4 statements inside
+//
+//
+//
 public class selectionSortMain {
 
 	public static void main(String[] args) {
